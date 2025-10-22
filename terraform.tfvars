@@ -3,4 +3,8 @@
 aws-region = "us-west-1"
 
 
-bucket_count = 2
+bucket_names = [
+  "fl-demo-logs",
+  "fl-demo-images",
+  "fl-demo-reports"
+]
