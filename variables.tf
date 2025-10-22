@@ -20,10 +20,6 @@ variable "bucket_count" {
   type        = number
 }
 
-variable "bucket_names" {
-  description = "List of bucket names (without prefix)"
-  type        = list(string)
-}
 
 variable "policy_file" {
   description = "Path to the S3 bucket policy JSON file"

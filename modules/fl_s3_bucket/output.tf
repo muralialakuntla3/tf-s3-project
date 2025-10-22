@@ -1,3 +1,3 @@
 output "bucket_names" {
-  value = [for b in aws_s3_bucket.this : b.bucket]
+  value = [for b in aws_s3_bucket.fl_bucket : b.bucket]
 }
