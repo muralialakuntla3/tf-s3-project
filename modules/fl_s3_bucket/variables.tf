@@ -4,6 +4,6 @@ variable "bucket_names" {
 }
 
 variable "policy_file" {
-  description = "Path to policy JSON file"
-  type        = string
+  description = "List of policy file paths"
+  type        = list(string)
 }

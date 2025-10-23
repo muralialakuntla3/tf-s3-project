@@ -21,12 +21,12 @@ resource "aws_s3_bucket_public_access_block" "fl_bucket_block" {
 }
 
 resource "aws_s3_bucket_policy" "fl_bucket_policy" {
-  for_each = aws_s3_bucket.fl_bucket
+  for_each = {
+    for idx, name in var.bucket_names : name => var.policy_file[idx]
+  }
 
-  bucket = each.value.id
-  policy = templatefile(var.policy_file, {
-    bucket_name = each.value.bucket
-  })
+  bucket = aws_s3_bucket.fl_bucket[each.key].id
+  policy = file(each.value)
 
   depends_on = [aws_s3_bucket_public_access_block.fl_bucket_block]
 }
